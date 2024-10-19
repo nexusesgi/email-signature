@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://api.fontshare.com/v2/css?f[]=author@200,201,300,301,400,401,500,501,600,601,700,701,1,2&display=swap" rel="stylesheet">
+  <title>Générateur de signature d'e-mail Nexus ESGI</title>
+  <style>
+    * {
+      font-family: 'Author', sans-serif;
+    }
+
+    /* Style global du conteneur */
+    .nexus-container {
+      max-width: 600px;
+      background-color: white;
+      padding: 20px;
+      margin: 0 auto;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Image du logo */
+    .nexus-logo {
+      display: block;
+      margin: 0 auto 20px;
+      width: 100px;
+    }
+
+    /* Titres */
+    .nexus-title {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .nexus-subtitle {
+      font-size: 1.25rem;
+      margin-top: 40px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    /* Styles pour les inputs et labels */
+    .nexus-form-container label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 0.875rem;
+      color: #4B5563;
+    }
+
+    .nexus-form-container input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #d1d5db;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      font-size: 1rem;
+      background-color: #fff;
+      box-sizing: border-box;
+    }
+
+    .nexus-form-container input:focus {
+      border-color: #3B82F6;
+      outline: none;
+    }
+
+    /* Signature d'email */
+    .nexus-signature {
+      width: 100%;
+      border: 1px solid #E5E7EB;
+      background-color: #F9FAFB;
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    .nexus-signature p {
+      margin: 5px 0;
+      font-size: 1rem;
+      color: #1F2937;
+    }
+
+    /* Table dans la signature */
+    .nexus-signature-table {
+      width: 100%;
+    }
+
+    .nexus-signature-table td {
+      vertical-align: top;
+      padding: 10px;
+    }
+
+    .nexus-signature-table td img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Liens dans la signature */
+    .nexus-signature a {
+      color: #1F2937;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .nexus-signature a:hover {
+      text-decoration: underline;
+    }
+
+    /* Liste d'instructions */
+    .nexus-instructions {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-top: 20px;
+    }
+
+    .nexus-instructions li {
+      margin-bottom: 8px;
+      font-size: 0.875rem;
+      color: #4B5563;
+    }
+
+    /* Image du tutoriel */
+    .nexus-tutorial-image {
+      width: 100%;
+      margin: 20px auto;
+      display: block;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nexus-container {
+        padding: 15px;
+      }
+
+      .nexus-form-container input {
+        padding: 8px;
+      }
+
+      .nexus-signature-table td {
+        display: block;
+        width: 100%;
+        padding: 5px 0;
+      }
+
+      .nexus-signature-table td img {
+        width: 70px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="nexus-container">
+    <img src="https://ci3.googleusercontent.com/mail-sig/AIorK4x2JSX6lQAnrg2t6vQ3Z3LiO3z9EvqCBl4wjB3q-Q7yMRq8IR0p_RmNF00iQNJD5jK4RlhAD1y1xxUe" alt="Logo Nexus ESGI" class="nexus-logo" style="width: 150px;">
+
+    <h1 class="nexus-title">Générateur de signature Nexus ESGI</h1>
+
+    <div class="nexus-form-container">
+      <label for="name">Nom</label>
+      <input type="text" id="name" placeholder="Votre nom" oninput="updateSignature()">
+
+      <label for="post">Poste</label>
+      <input type="text" id="post" placeholder="Votre poste" oninput="updateSignature()">
+
+      <label for="phone">Numéro de téléphone</label>
+      <input type="text" id="phone" placeholder="Votre numéro de téléphone" oninput="updateSignature()">
+
+      <label for="email">E-mail</label>
+      <input type="text" id="email" placeholder="Votre e-mail" oninput="updateSignature()">
+
+      <label for="team">Team</label>
+      <input type="text" id="team" placeholder="Votre team" oninput="updateSignature()">
+
+      <label for="email-team">E-mail</label>
+      <input type="text" id="email-team" placeholder="E-mail de votre team" oninput="updateSignature()">
+    </div>
+
+    <h2 class="nexus-subtitle">Signature d'Email</h2>
+
+    <table border="0" cellspacing="0" cellpadding="0" style="font-family: Arial, sans-serif; font-size: 14px;">
+      <tr>
+        <td style="padding-right: 20px; vertical-align: left; text-align: center; padding-top: 10px; padding-bottom: 10px;">
+          <!-- Logo et texte de gauche -->
+          <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td>
+                <img src="https://ci3.googleusercontent.com/mail-sig/AIorK4x2JSX6lQAnrg2t6vQ3Z3LiO3z9EvqCBl4wjB3q-Q7yMRq8IR0p_RmNF00iQNJD5jK4RlhAD1y1xxUe" alt="Nexus Logo" style="width: 200px;">
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-top: 15px; font-size: 14px; font-weight: bold; color: #1B1A39;">
+                Sécurisons l'avenir ensemble
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-top: 15px;">
+                <a href="http://nexusesgi.fr" target="_blank"><img src="https://ci3.googleusercontent.com/mail-sig/AIorK4wuFQ5d_bt5zR3-jtaw1d6qVETlHJCDB2gZI8Nh3sQ1uo84g81useumg6z9cVN-E1Sy_w_rgwfuRx_g" alt="Website" style="width: 20px; padding-right: 5px;"></a>
+                <a href="https://www.linkedin.com/company/nexus-esgi-junior-conseil/" target="_blank"><img src="https://ci3.googleusercontent.com/mail-sig/AIorK4zS_85SxUPNtnOyfig57funM0uLprjpL9uWtCbW4xHpHQArlN4hgU-FC6msTnVIACuIGHNqwHOAeeNt" alt="LinkedIn" style="width: 20px; padding-right: 5px;"></a>
+                <a href="https://www.instagram.com/nexusesgi/" target="_blank"><img src="https://ci3.googleusercontent.com/mail-sig/AIorK4wkrf-XvCW26MqFgod3wPApQa8MfjHHkw0fpBq1O55BW6RxN4Z2JPqyaJWbOLNnhDObM9hTGYBk_DVs" alt="Instagram" style="width: 20px; padding-right: 5px;"></a>
+                <a href="https://discord.gg/upyE9bFjbX" target="_blank"><img src="https://ci3.googleusercontent.com/mail-sig/AIorK4wX4ApMwb-orSz_b8DRH6iANruk9_GaEvgM5oVr-0rUj7uyaQZ1EB1MpEy445YXytc8ZMFuJhNR4A3c" alt="Discord" style="width: 20px;"></a>
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td style="border-left: 2px solid #E28FBF; padding-left: 20px; vertical-align: top;  padding-top: 10px; padding-bottom: 10px;">
+          <!-- Informations à droite -->
+          <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td id="signature-name" style="font-size: 16px; color: #1B1A39; font-weight: bold;">
+                
+              </td>
+            </tr>
+            <tr>
+              <td id="signature-post" style="font-size: 14px; color: #E28FBF;">
+                
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-top: 5px; font-size: 14px; color: #1B1A39;">
+                <a id="signature-phone" href="" style="color: #1B1A39; text-decoration: none !important;"></a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-top: 2px; font-size: 14px; color: #1B1A39;">
+                <a id="signature-email" style="color: #1B1A39; text-decoration: none !important;"></a>
+              </td>
+            </tr>
+            <tr>
+              <td id="signature-team" style="padding-top: 20px; font-size: 16px; color: #1B1A39; font-weight: bold;">
+                
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-top: 2px; font-size: 14px; color: #1B1A39;">
+                <a id="signature-email-team" href="" style="color: #1B1A39; text-decoration: none !important;"></a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <script>
+    function updateSignature() {
+      const name = document.getElementById('name').value;
+      const position = document.getElementById('post').value;
+      let phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+      const team = document.getElementById('team').value;
+      const email_team = document.getElementById('email-team').value;
+
+      document.getElementById('signature-name').textContent = name;
+      document.getElementById('signature-post').textContent = position;
+      document.getElementById('signature-phone').textContent = phone;
+      document.getElementById('signature-email').textContent = email;
+      document.getElementById('signature-team').textContent = team;
+      document.getElementById('signature-email-team').textContent = email_team;
+
+        // 1. Supprimer tous les espaces, tirets, points, et autres caractères non numériques sauf le "+"
+        phone = phone.replace(/[^\d+]/g, ''); // Supprime tout sauf les chiffres et le "+"
+
+        // 2. Si le numéro commence par "+33", le conserver, sinon vérifier s'il commence par 0
+        if (!phone.startsWith('+33')) {
+        // Vérifier si le numéro commence par "0" et ajouter "33" après suppression du "0"
+        if (phone.startsWith('0')) {
+            phone = '+33' + phone.substring(1); // Ajoute "+33" au début du numéro sans le premier "0"
+        }
+        }
+
+        // 3. Limiter le numéro à 12 chiffres maximum (330XXXXXXXXX)
+        if (phone.length > 12) {
+        phone = phone.substring(0, 12);
+        }
+
+      document.getElementById('signature-phone').href = phone ? `tel:${phone}` : '#';
+      document.getElementById('signature-email').href = email ? `mailto:${email}` : '#';
+      document.getElementById('signature-email-team').href = email_team ? `mailto:${email_team}` : '#';
+    }
+  </script>
+
+</body>
+</html>
